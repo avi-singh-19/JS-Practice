@@ -7,20 +7,9 @@ document.addEventListener('DOMContentLoaded', function() { // runs everything on
     };
 
     // when <colour> button is submitted, change CSS
-    document.querySelector('#red').onclick = function(){
-        document.querySelector('#hello').style.color = 'red';
-    };
-
-    document.querySelector('#blue').onclick = function(){
-        document.querySelector('#hello').style.color = 'blue';
-    };
-
-    document.querySelector('#green').onclick = function(){
-        document.querySelector('#hello').style.color = 'green';
-    };
-
-    document.querySelector('#reset').onclick = function(){
-        document.querySelector('#hello').style.color = 'black';
-    };
-
+    document.querySelectorAll('button').forEach(function(button){
+        button.onclick = function(){
+            document.querySelector('#hello').style.color = button.dataset.colour
+        };
+    });
 });
