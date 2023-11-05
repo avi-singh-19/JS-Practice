@@ -7,9 +7,14 @@ document.addEventListener('DOMContentLoaded', function() { // runs everything on
     };
 
     // when <colour> button is submitted, change CSS
-    document.querySelectorAll('button').forEach(function(button){
+    document.querySelectorAll('button').forEach(function(button) {
         button.onclick = function(){
             document.querySelector('#hello').style.color = button.dataset.colour
         };
     });
+
+    // when <colour> drop down option is chosen, change CSS
+    document.querySelector('select').onchange = function() {
+        document.querySelector('#hello').style.color = this.value;
+    };
 });
