@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tasks</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function(){
+                document.querySelector('form').onsubmit = () => {
+
+                    // when dom content loaded, once form is submitted, retrieve the submitted task and set to
+                    const task = document.querySelector('#task').value;
+
+                    // create a list element and set it equal to task
+                    const li = document.createElement('li');
+                    li.innerHTML = task;
+
+                    // add task to <ul>
+                    document.querySelector('#tasks-list').append(li);
+
+                    // after task is added, clear the form text field
+                    document.querySelector('#task').value = '';
+
+                    // don't refresh the page after submission
+                    return false;
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Tasks</h1>
+        <ul id="tasks-list">
+        </ul>
+        <form>
+            <input id="task" placeholder="New task" type="text">
+            <input id="submit" type="submit">
+        </form>
+    </body>
+</html>
