@@ -10,12 +10,17 @@ function showAlert() {
     }
 }
 
-let count = 0;
-function Counter(){
-    count++;
-    document.querySelector('h2').innerHTML = count;
+if (!localStorage.getItem('counter')){
+    localStorage.setItem('counter', 0);
+}
 
-    if (count % 10 === 0){
-        alert(`Count is now ${count}`)
+function Counter(){
+    let counter = localStorage.getItem('counter');
+    counter++;
+    document.querySelector('h2').innerHTML = counter;
+    localStorage.setItem('counter', counter);
+
+    if (counter % 10 === 0){
+        alert(`Count is now ${counter}`)
     }
 }
